@@ -52,7 +52,7 @@ typedef struct parameters
 
 	unsigned int h_modifier		: 1;
 	unsigned int l_modifier		: 1;
-} parama_t;
+} params_t;
 
 /**
  * struct specifier - Struct token
