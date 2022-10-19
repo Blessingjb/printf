@@ -1,10 +1,11 @@
 #include "main.h"
 
 /**
- * _printf - prints and outputs into the standard output
+ * _printf - prints and input into the standard output
  * @format: the format string
  * Return: number of bytes printed
  */
+
 int _printf(const char *format, ...)
 {
 	int sum = 0;
@@ -15,23 +16,23 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 
-	if (!format || (format[0] == '%' && !format[1])) /*checking for null*/
+	if (!format || (format[0] == '%' && !format[1])) /* checking for NULL char */
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
 	for (p = (char *)format; *p; p++)
 	{
 		init_params(&params, ap);
-		if (*p != '%') /* checking for % specifier */
+		if (*p != '%') /*checking for the % specifier */
 		{
 			sum += _putchar(*p);
 			continue;
 		}
 		start = p;
 		p++;
-		while (get_flag(p, &params)) /*while char at p is flag character */
+		while (get_flag(p, &params)) /* while char at p is flag character*/
 		{
-			p++; /* next character */
+			p++; /* next character*/
 		}
 		p = get_width(p, &params, ap);
 		p = get_precision(p, &params, ap);
